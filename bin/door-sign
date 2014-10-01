@@ -6,15 +6,15 @@ require 'ruby_spark'
 require 'active_support'
 
 # So Google knows you're not evil
-APP_NAME = 'com.alexforey.door-sign'
+APP_NAME = 'com.kchau.door-sign'
 
 # Array of Google Calendar Names to check
-CALENDARS = ['Kevin@Gmail', 'Kevin Chau', 'Kevin@Divshot']
+CALENDARS = ['Gmail', 'Kevin Chau', 'Divshot']
 
 # Create a calendar object from a given name
 def calendar(name)
-  Google::Calendar.new(:username => ENV['USERNAME'],
-                        :password => ENV['PASSWORD'],
+  Google::Calendar.new(:username => 'chaukevin@gmail.com',
+                        :password => 'ljprhcjkadmsgubx',
                         :app_name => APP_NAME,
                         :calendar => name)
 end
@@ -78,14 +78,14 @@ end
 # Did we end up with an event?
 if event
   # Yes, so build the payload with "|" between each part
-  payload = "Alex is at:|#{event[:event].title}|#{event[:event].where}|(#{event[:cal]} Calendar)"
+  payload = "Kevin is at:|#{event[:event].title}|#{event[:event].where}|(#{event[:cal]} Calendar)"
 else
   # No, so say we're not busy
-  payload = "Alex is currently| | Not busy| "
+  payload = "Kevin is currently| | Not busy| "
 end
 
 # Initalise the core
-core = RubySpark::Core.new(ENV['SPARK_ID'], ENV['SPARK_TOKEN'])
+core = RubySpark::Core.new('55ff6e065075555322371887', '2516e3a038eadf2d8dc71fbd135fed6e167d4ddd')
 
 # Send the text to the core
 core.function("update", payload)
