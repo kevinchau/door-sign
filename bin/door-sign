@@ -13,8 +13,8 @@ CALENDARS = ['Gmail', 'Kevin Chau', 'Divshot']
 
 # Create a calendar object from a given name
 def calendar(name)
-  Google::Calendar.new(:username => 'chaukevin@gmail.com',
-                        :password => 'ljprhcjkadmsgubx',
+  Google::Calendar.new(:username => ENV['USERNAME'],
+                        :password => ENV['PASSWORD'],
                         :app_name => APP_NAME,
                         :calendar => name)
 end
@@ -85,7 +85,7 @@ else
 end
 
 # Initalise the core
-core = RubySpark::Core.new('55ff6e065075555322371887', '2516e3a038eadf2d8dc71fbd135fed6e167d4ddd')
+core = RubySpark::Core.new(ENV['SPARK_ID'], ENV['SPARK_TOKEN'])
 
 # Send the text to the core
 core.function("update", payload)
