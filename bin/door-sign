@@ -16,7 +16,7 @@ def calendar(name)
   Google::Calendar.new(:username => ENV['USERNAME'],
                         :password => ENV['PASSWORD'],
                         :app_name => APP_NAME,
-                        :calendar => name)
+                        :calendar => name
 end
 
 # Find out which events are happening right now
