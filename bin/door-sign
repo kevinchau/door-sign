@@ -9,14 +9,14 @@ require 'active_support'
 APP_NAME = 'com.alexforey.door-sign'
 
 # Array of Google Calendar Names to check
-CALENDARS = ['School', 'Home', 'Work', 'SPS Film', 'Lessons']
+CALENDARS = ['Kevin@Gmail', 'Kevin Chau', 'Kevin@Divshot']
 
 # Create a calendar object from a given name
 def calendar(name)
   Google::Calendar.new(:username => ENV['USERNAME'],
                         :password => ENV['PASSWORD'],
                         :app_name => APP_NAME,
-                        :calendar => name
+                        :calendar => name)
 end
 
 # Find out which events are happening right now
