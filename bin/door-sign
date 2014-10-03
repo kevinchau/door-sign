@@ -31,6 +31,7 @@ def events_now
 
     # Get events occuring right now
     cal_events = calendar(name).find_events_in_range(Time.now, Time.now + 60)
+    puts calendar(name)
 
     # Is there more than one event right now?
     if cal_events.kind_of?(Array)
