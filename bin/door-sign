@@ -4,12 +4,13 @@ require 'rubygems'
 require 'google_calendar'
 require 'ruby_spark'
 require 'active_support'
+require 'active_support/core_ext'
 
 # So Google knows you're not evil
 APP_NAME = 'com.kchau.door-sign'
 
 # Array of Google Calendar Names to check
-CALENDARS = ['Gmail', 'Kevin Chau', 'Divshot']
+CALENDARS = ['Gmail', 'KC', 'Divshot']
 
 # Create a calendar object from a given name
 def calendar(name)
@@ -91,7 +92,7 @@ core = RubySpark::Core.new(ENV['SPARK_ID'], ENV['SPARK_TOKEN'])
 core.function("update", payload)
 
 # Figure out whether the backlight should be on or off
-now = Time.now.in_time_zone("London")
+now = Time.now.in_time_zone("Pacific Time (US & Canada)")
 
 # Compare them
 if now.hour > 22 or now.hour < 7

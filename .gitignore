@@ -4,3 +4,5 @@
 Gemfile
 Gemfile.lock
 LICENSE
+vendor
+bin/door-sign-test
