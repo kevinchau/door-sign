@@ -95,7 +95,7 @@ core.function("update", payload)
 now = Time.now.in_time_zone("Pacific Time (US & Canada)")
 
 # Compare them
-if now.hour > 22 or now.hour < 7
+if now.hour > 20 or now.hour < 7
 
   # Turn it off at night
   core.function("backlight", "off")
