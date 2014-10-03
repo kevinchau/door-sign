@@ -9,14 +9,14 @@ String titleText = "";
 
 void setup()
 {
-    lcd = new LiquidCrystal_I2C(0x27, 20, 4);
+    lcd = new LiquidCrystal_I2C(0x3F, 20, 4);
     lcd->init();
     lcd->backlight();
     lcd->clear();
 
     // Placeholder text before we recieve first update
     lcd->setCursor(0,0);
-    lcd->print("Alex is at:");
+    lcd->print("Kevin is at:");
 
     // Register the Spark cloud functions
     Spark.function("update", update);
